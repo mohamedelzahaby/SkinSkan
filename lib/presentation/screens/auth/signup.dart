@@ -5,17 +5,34 @@ import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/image_manager.dart';
 import 'package:skin_skan_v1/presentation/screens/auth/loginscreen.dart';
 import 'package:skin_skan_v1/presentation/screens/home/homepage.dart';
+import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
 
 import '../../../core/resources/colors.dart';
 import '../../../core/theme/theme_helper.dart';
 import '../../../widgets/basedbutton.dart';
 
-class Signupscreen extends StatelessWidget {
+class Signupscreen extends StatefulWidget {
   Signupscreen({super.key});
+
+  @override
+  State<Signupscreen> createState() => _SignupscreenState();
+}
+
+class _SignupscreenState extends State<Signupscreen> {
   final _fullnameController = TextEditingController();
+
   final _emailController = TextEditingController();
+
   final _passwordController = TextEditingController();
+
   final _confirmpasswordController = TextEditingController();
+
+  final _ageController = TextEditingController();
+
+  List<String> genderlist = ['Male', 'Female'];
+
+  String? selecteditem = "Male";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,55 +44,56 @@ class Signupscreen extends StatelessWidget {
           image: AssetImage(ImageAssets.sign_up),
         )),
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 12,
+          padding: EdgeInsets.symmetric(
+            horizontal: 2.h,
+            vertical: 3.2.h,
           ),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Padding(
-              padding: EdgeInsets.only(left: 5.w, top: 18.h),
+              padding: EdgeInsets.only(left: 5.w, top: 19.h),
               child: const Text(
                 "Sign up",
                 style: TextStyle(
                     decoration: TextDecoration.none,
                     fontSize: 32,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black),
+                    color: Mycolors.mintgreen),
               ),
             ),
-            const SizedBox(
-              height: 18,
+            SizedBox(
+              height: 1.5.h,
             ),
             buildnametextformfield(context),
-            const SizedBox(
-              height: 18,
+            SizedBox(
+              height: 1.5.h,
             ),
             buildemailtextformfield(context),
-            const SizedBox(
-              height: 18,
+            SizedBox(
+              height: 1.5.h,
             ),
             buildpasswordtextformfield(context),
-            const SizedBox(
-              height: 18,
+            SizedBox(
+              height: 1.5.h,
             ),
             buildconfirmpasswordtextformfield(context),
-            const SizedBox(
-              height: 18,
+            SizedBox(
+              height: 1.5.h,
             ),
-            buildconfirmpasswordtextformfield(context),
-            const SizedBox(
-              height: 18,
+            buildagetextformfield(context),
+            SizedBox(
+              height: 1.5.h,
             ),
             Padding(
               padding: EdgeInsets.only(left: 5.h),
-              child: BaseButton(text: "Signup", onpressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage()
-                    ));
-              }),
+              child: BaseButton(
+                  text: "Signup",
+                  onpressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Homescreen()));
+                  }),
             ),
             const SizedBox(
               height: 10,
@@ -96,8 +114,7 @@ class Signupscreen extends StatelessWidget {
                   child: const Text(
                     "Login ",
                     style: TextStyle(
-                        color: Mycolors.bottuncolor,
-                        fontWeight: FontWeight.bold),
+                        color: Mycolors.mintgreen, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -113,11 +130,14 @@ class Signupscreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 0),
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(right: 190.0),
-            child: Text(
+          Padding(
+            padding: EdgeInsets.only(right: 24.h),
+            child: const Text(
               "full name",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Mycolors.mintgreen),
             ),
           ),
           SizedBox(
@@ -173,11 +193,14 @@ class Signupscreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 0),
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(right: 220.0),
-            child: Text(
+          Padding(
+            padding: EdgeInsets.only(right: 28.h),
+            child: const Text(
               "Email",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Mycolors.mintgreen),
             ),
           ),
           SizedBox(
@@ -233,11 +256,14 @@ class Signupscreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 0),
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(right: 190.0),
-            child: Text(
+          Padding(
+            padding: EdgeInsets.only(right: 24.h),
+            child: const Text(
               "Password",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Mycolors.mintgreen),
             ),
           ),
           SizedBox(
@@ -293,11 +319,14 @@ class Signupscreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 0),
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(right: 130.0),
-            child: Text(
+          Padding(
+            padding: EdgeInsets.only(right: 16.h),
+            child: const Text(
               "Confirm Password",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Mycolors.mintgreen),
             ),
           ),
           SizedBox(
@@ -342,6 +371,145 @@ class Signupscreen extends StatelessWidget {
                     ),
                   )),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildagetextformfield(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 0),
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 7.h),
+                child: const Text(
+                  "age",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Mycolors.mintgreen),
+                ),
+              ),
+              SizedBox(
+                height: 1.h,
+              ),
+              Container(
+                height: 45,
+                width: 150,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  child: TextFormField(
+                      controller: _ageController,
+                      cursorColor: Colors.black,
+                      decoration: InputDecoration(
+                        hintText: "20",
+                        contentPadding: const EdgeInsetsDirectional.all(10),
+                        hintStyle: TextStyle(color: Colors.grey[400]),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                      )),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            width: 1.h,
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 7.h),
+                child: const Text(
+                  "age",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Mycolors.mintgreen),
+                ),
+              ),
+              SizedBox(
+                height: 1.h,
+              ),
+              Container(
+                height: 45,
+                width: 170,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  child: DropdownButtonFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                      ),
+                      value: selecteditem,
+                      items: genderlist
+                          .map((item) => DropdownMenuItem(
+                                child: Text(
+                                  item,
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                value: item,
+                              ))
+                          .toList(),
+                      onChanged: (item) {
+                        setState(() {
+                          selecteditem = item;
+                        });
+                      }),
+                ),
+              ),
+            ],
           ),
         ],
       ),

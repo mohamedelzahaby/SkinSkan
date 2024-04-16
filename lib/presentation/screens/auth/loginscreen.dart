@@ -6,6 +6,7 @@ import 'package:skin_skan_v1/core/resources/colors.dart';
 import 'package:skin_skan_v1/core/resources/image_manager.dart';
 import 'package:skin_skan_v1/presentation/screens/auth/signup.dart';
 import 'package:skin_skan_v1/presentation/screens/home/homepage.dart';
+import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
 
 import '../../../core/theme/theme_helper.dart';
 import '../../../widgets/basedbutton.dart';
@@ -28,9 +29,9 @@ class Loginscreen extends StatelessWidget {
               image: AssetImage(ImageAssets.login),
             )),
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 29,
+              padding: EdgeInsets.symmetric(
+                horizontal: 2.h,
+                vertical: 3.5.h,
               ),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -44,15 +45,15 @@ class Loginscreen extends StatelessWidget {
                             decoration: TextDecoration.none,
                             fontSize: 32,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black),
+                            color: Mycolors.mintgreen),
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 2.5.h,
                     ),
                     buildemailtextformfield(context),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 2.5.h,
                     ),
                     buildpasswordtextformfield(context),
                     const SizedBox(
@@ -62,7 +63,7 @@ class Loginscreen extends StatelessWidget {
                       padding: EdgeInsets.only(left: 21.h),
                       child: const Text(
                         "Forget Password ?",
-                        style: TextStyle(color: Mycolors.bottuncolor),
+                        style: TextStyle(color: Mycolors.mintgreen),
                       ),
                     ),
                     const SizedBox(
@@ -73,7 +74,7 @@ class Loginscreen extends StatelessWidget {
                       child: BaseButton(
                           text: "Login",
                           onpressed: () {
-                            const HomePage();
+                            const Homescreen();
                           }),
                     ),
                     const SizedBox(
@@ -93,7 +94,7 @@ class Loginscreen extends StatelessWidget {
                           child: const Text(
                             "signup ",
                             style: TextStyle(
-                                color: Mycolors.bottuncolor,
+                                color: Mycolors.mintgreen,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -174,7 +175,10 @@ class Loginscreen extends StatelessWidget {
             padding: EdgeInsets.only(right: 220.0),
             child: Text(
               "Email",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Mycolors.mintgreen),
             ),
           ),
           SizedBox(
@@ -234,7 +238,10 @@ class Loginscreen extends StatelessWidget {
             padding: EdgeInsets.only(right: 190.0),
             child: Text(
               "Password",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Mycolors.mintgreen),
             ),
           ),
           SizedBox(

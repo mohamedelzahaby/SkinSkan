@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skin_skan_v1/core/resources/colors.dart';
 
 import '../../../core/resources/image_manager.dart';
 import '../../../widgets/basedbutton.dart';
@@ -32,13 +33,15 @@ class _Select_body_PartState extends State<Select_body_Part> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: const Icon(Icons.arrow_back_ios)),
+                      icon: const Icon(Icons.arrow_back_ios,
+                          color: Mycolors.mintgreen)),
                   SizedBox(
-                    width: 3.h,
+                    width: 2.h,
                   ),
                   Text(
                     "Select Body Part $bodypart",
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style:
+                        TextStyle(fontSize: 20.sp, color: Mycolors.mintgreen),
                   ),
                 ],
               ),

@@ -52,7 +52,7 @@ class Homescreen extends StatelessWidget {
                     child: Text(
                       "SKANS Statistics",
                       style: TextStyle(
-                          color: Mycolors.bottuncolor,
+                          color: Mycolors.mintgreen,
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w600),
                     ),
@@ -107,7 +107,7 @@ class Homescreen extends StatelessWidget {
                     child: Text(
                       "My SKANS",
                       style: TextStyle(
-                          color: Mycolors.bottuncolor,
+                          color: Mycolors.mintgreen,
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w600),
                     ),
@@ -115,7 +115,7 @@ class Homescreen extends StatelessWidget {
                   buildHistoryList(),
                   GestureDetector(
                     child: const Text("View all",
-                        style: TextStyle(color: Mycolors.bottuncolor)),
+                        style: TextStyle(color: Mycolors.mintgreen)),
                   ),
                 ]),
               ),

@@ -9,8 +9,7 @@ Widget BaseButton({required String text, required VoidCallback onpressed}) {
     onTap: onpressed,
     child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Mycolors.bottuncolor),
+            borderRadius: BorderRadius.circular(20), color: Mycolors.mintgreen),
         height: 50,
         width: 250,
         child: Center(

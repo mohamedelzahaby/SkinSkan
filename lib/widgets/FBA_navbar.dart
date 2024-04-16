@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/colors.dart';
 import 'package:skin_skan_v1/core/resources/image_manager.dart';
 import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
-import 'package:skin_skan_v1/presentation/screens/onbaording/onbaordingscreen.dart';
+import 'package:skin_skan_v1/presentation/screens/more/morescreen.dart';
 import 'package:skin_skan_v1/presentation/screens/select_body_part/select_body_part.dart';
 
 class Navbar extends StatefulWidget {
@@ -19,7 +19,7 @@ class _NavbarState extends State<Navbar> {
   int currentTab = 0; // to keep track of active tab index
   final List<Widget> screens = [
     const Homescreen(),
-    const OnboardingoneScreen(),
+    const Morescreen(),
   ]; // to store nested tabs
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = const Homescreen(); // Our first view in viewport
@@ -31,9 +31,7 @@ class _NavbarState extends State<Navbar> {
         child: currentScreen,
         bucket: bucket,
       ),
-      
-      bottomSheet: 
-      Container(
+      bottomSheet: Container(
         height: 8.h,
         width: double.infinity,
         // decoration: BoxDecoration(
@@ -64,14 +62,14 @@ class _NavbarState extends State<Navbar> {
                           Icon(
                             Icons.home_filled,
                             color: currentTab == 0
-                                ? Mycolors.bottuncolor
+                                ? Mycolors.mintgreen
                                 : Colors.grey,
                           ),
                           Text(
                             'Home',
                             style: TextStyle(
                               color: currentTab == 0
-                                  ? Mycolors.bottuncolor
+                                  ? Mycolors.mintgreen
                                   : Colors.grey,
                             ),
                           ),
@@ -90,7 +88,7 @@ class _NavbarState extends State<Navbar> {
                       onPressed: () {
                         setState(() {
                           currentScreen =
-                              const OnboardingoneScreen(); // if user taps on this dashboard tab will be active
+                              const Morescreen(); // if user taps on this dashboard tab will be active
                           currentTab = 2;
                         });
                       },
@@ -100,14 +98,14 @@ class _NavbarState extends State<Navbar> {
                           Icon(
                             Icons.dehaze,
                             color: currentTab == 2
-                                ? Mycolors.bottuncolor
+                                ? Mycolors.mintgreen
                                 : Colors.grey,
                           ),
                           Text(
                             'More',
                             style: TextStyle(
                               color: currentTab == 2
-                                  ? Mycolors.bottuncolor
+                                  ? Mycolors.mintgreen
                                   : Colors.grey,
                             ),
                           ),
@@ -145,7 +143,7 @@ class _NavbarState extends State<Navbar> {
                   const Text(
                     "SKAN now!",
                     style: TextStyle(
-                        color: Mycolors.bottuncolor,
+                        color: Mycolors.mintgreen,
                         fontSize: 12,
                         fontWeight: FontWeight.w600),
                   ),
