@@ -48,9 +48,9 @@ class Skanshistory extends StatelessWidget {
             ListView.builder(
               itemCount: 4,
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                return Historyitem();
+                return const Historyitem();
               },
             ),
           ],

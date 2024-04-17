@@ -65,7 +65,7 @@ class OnboardingoneScreen extends StatelessWidget {
           BaseButton(text: "Get Started !", onpressed: () {Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Loginscreen()
+                      builder: (context) => const Loginscreen()
                     ));}),
           const SizedBox(
             height: 50,

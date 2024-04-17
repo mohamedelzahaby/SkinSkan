@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 // import 'package:path/path.dart';
@@ -9,10 +10,11 @@ import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
 
 import '../../../core/resources/colors.dart';
 import '../../../core/theme/theme_helper.dart';
+import '../../../data/auth/auth.dart';
 import '../../../widgets/basedbutton.dart';
 
 class Signupscreen extends StatefulWidget {
-  Signupscreen({super.key});
+  const Signupscreen({super.key});
 
   @override
   State<Signupscreen> createState() => _SignupscreenState();
@@ -32,6 +34,42 @@ class _SignupscreenState extends State<Signupscreen> {
   List<String> genderlist = ['Male', 'Female'];
 
   String? selecteditem = "Male";
+
+   Future signup() async {
+    // print("object");
+    // var userCredential =
+    await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        )
+        .catchError((e) => print(e));
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return const auth();
+      }),
+    );
+  }
+
+  // bool repassword() {
+  //   if (_passwordController.text == _repasswordController.text) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    // _repasswordController.dispose();
+  }
+
+  bool ishidepassword = true;
+  bool ishiderepassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -89,10 +127,7 @@ class _SignupscreenState extends State<Signupscreen> {
               child: BaseButton(
                   text: "Signup",
                   onpressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Homescreen()));
+                    signup();
                   }),
             ),
             const SizedBox(
@@ -107,7 +142,7 @@ class _SignupscreenState extends State<Signupscreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return Loginscreen();
+                        return const Loginscreen();
                       }),
                     );
                   },
@@ -468,8 +503,31 @@ class _SignupscreenState extends State<Signupscreen> {
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
                   ),
-                  child: DropdownButton(
+                  child: DropdownButtonFormField(
                       borderRadius: BorderRadius.circular(22),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(22),
+                          borderSide: BorderSide(
+                            color: appTheme.blueGray100,
+                            width: 1,
+                          ),
+                        ),
+                      ),
                       // decoration: InputDecoration(
                       //   focusedBorder: OutlineInputBorder(
                       //     borderRadius: BorderRadius.circular(22),
@@ -486,37 +544,14 @@ class _SignupscreenState extends State<Signupscreen> {
                       //     ),
                       //   ),
                       // ),
-                      //  decoration: InputDecoration(
-                      //     border: OutlineInputBorder(
-                      //       borderRadius: BorderRadius.circular(22),
-                      //       borderSide: BorderSide(
-                      //         color: appTheme.blueGray100,
-                      //         width: 1,
-                      //       ),
-                      //     ),
-                      //     enabledBorder: OutlineInputBorder(
-                      //       borderRadius: BorderRadius.circular(22),
-                      //       borderSide: BorderSide(
-                      //         color: appTheme.blueGray100,
-                      //         width: 1,
-                      //       ),
-                      //     ),
-                      //     focusedBorder: OutlineInputBorder(
-                      //       borderRadius: BorderRadius.circular(22),
-                      //       borderSide: BorderSide(
-                      //         color: appTheme.blueGray100,
-                      //         width: 1,
-                      //       ),
-                      //     ),
-                      //   ),
                       value: selecteditem,
                       items: genderlist
                           .map((item) => DropdownMenuItem(
+                                value: item,
                                 child: Text(
                                   item,
-                                  style: TextStyle(color: Colors.black),
+                                  style: const TextStyle(color: Colors.black),
                                 ),
-                                value: item,
                               ))
                           .toList(),
                       onChanged: (item) {

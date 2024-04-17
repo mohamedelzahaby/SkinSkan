@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "385228954319",
+    "project_id": "skinskan-bd07b",
+    "storage_bucket": "skinskan-bd07b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385228954319:android:9c16cdcee7c3183202f5ba",
+        "android_client_info": {
+          "package_name": "com.example.skin_skan_v1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWPj7T30WfyzQMr-1-HTM7JBpwX7_lqj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

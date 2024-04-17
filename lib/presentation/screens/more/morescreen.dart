@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../../core/resources/colors.dart';
@@ -249,7 +250,9 @@ class Morescreen extends StatelessWidget {
 
   Widget buildlogout(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        FirebaseAuth.instance.signOut();
+      },
       child: Container(
           height: 6.h,
           width: 100.w,
@@ -273,11 +276,7 @@ class Morescreen extends StatelessWidget {
                 const Spacer(
                     // flex: 1,
                     ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward_ios_rounded,
-                      color: Mycolors.circlered),
-                )
+                const Icon(Icons.arrow_forward_ios_rounded, color: Mycolors.circlered)
               ],
             ),
           )),

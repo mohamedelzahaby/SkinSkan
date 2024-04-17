@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/colors.dart';
@@ -11,12 +12,38 @@ import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
 import '../../../core/theme/theme_helper.dart';
 import '../../../widgets/basedbutton.dart';
 
-class Loginscreen extends StatelessWidget {
-  Loginscreen({super.key});
+class Loginscreen extends StatefulWidget {
+  const Loginscreen({super.key});
+
+  @override
+  State<Loginscreen> createState() => _LoginscreenState();
+}
+
+class _LoginscreenState extends State<Loginscreen> {
   final _fullnameController = TextEditingController();
+
   final _emailController = TextEditingController();
+
   final _passwordController = TextEditingController();
+
   final _confirmpasswordController = TextEditingController();
+
+  Future signin() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim());
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    // _repasswordController.dispose();
+  }
+
+  bool hideloginpassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +101,7 @@ class Loginscreen extends StatelessWidget {
                       child: BaseButton(
                           text: "Login",
                           onpressed: () {
-                            const Homescreen();
+                            signin();
                           }),
                     ),
                     const SizedBox(
@@ -89,7 +116,8 @@ class Loginscreen extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Signupscreen()));
+                                    builder: (context) =>
+                                        const Signupscreen()));
                           },
                           child: const Text(
                             "signup ",

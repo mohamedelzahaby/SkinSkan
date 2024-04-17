@@ -1,7 +1,10 @@
 // ignore_for_file: unused_import
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:skin_skan_v1/data/auth/auth.dart';
+import 'package:skin_skan_v1/firebase_options.dart';
 import 'package:skin_skan_v1/presentation/screens/auth/loginscreen.dart';
 import 'package:skin_skan_v1/presentation/screens/auth/signup.dart';
 import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
@@ -13,7 +16,11 @@ import 'package:skin_skan_v1/presentation/screens/skindetails/skandetails.dart';
 import 'package:skin_skan_v1/presentation/screens/splash/splashscreen.dart';
 import 'package:skin_skan_v1/widgets/FBA_navbar.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -28,7 +35,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Skin skan',
-        home: const Skanshistory(),
+        home: auth(),
       );
     });
   }
