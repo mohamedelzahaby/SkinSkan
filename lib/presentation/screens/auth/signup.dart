@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -6,7 +8,7 @@ import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/image_manager.dart';
 import 'package:skin_skan_v1/presentation/screens/auth/loginscreen.dart';
 
-import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
+// import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
 
 import '../../../core/resources/colors.dart';
 import '../../../core/theme/theme_helper.dart';
@@ -35,15 +37,14 @@ class _SignupscreenState extends State<Signupscreen> {
 
   String? selecteditem = "Male";
 
-   Future signup() async {
+  Future signup() async {
     // print("object");
     // var userCredential =
-    await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim(),
-        )
-        .catchError((e) => print(e));
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+    // .catchError((e) => print(e));
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) {
@@ -69,7 +70,6 @@ class _SignupscreenState extends State<Signupscreen> {
   }
 
   bool ishidepassword = true;
-  bool ishiderepassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -316,8 +316,16 @@ class _SignupscreenState extends State<Signupscreen> {
               child: TextFormField(
                   controller: _passwordController,
                   cursorColor: Colors.black,
+                  obscureText: ishidepassword,
                   decoration: InputDecoration(
-                    hintText: "*******************",
+                    hintText: "password",
+                    suffixIcon: GestureDetector(
+                        onTap: togglepassword,
+                        child: Icon(
+                            ishidepassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Colors.grey[400])),
                     contentPadding: const EdgeInsetsDirectional.all(10),
                     hintStyle: TextStyle(color: Colors.grey[400]),
                     border: OutlineInputBorder(
@@ -379,8 +387,16 @@ class _SignupscreenState extends State<Signupscreen> {
               child: TextFormField(
                   controller: _confirmpasswordController,
                   cursorColor: Colors.black,
+                  obscureText: ishidepassword,
                   decoration: InputDecoration(
-                    hintText: "******************",
+                    suffixIcon: GestureDetector(
+                        onTap: togglepassword,
+                        child: Icon(
+                            ishidepassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Colors.grey[400])),
+                    hintText: "confirm password",
                     contentPadding: const EdgeInsetsDirectional.all(10),
                     hintStyle: TextStyle(color: Colors.grey[400]),
                     border: OutlineInputBorder(
@@ -528,22 +544,6 @@ class _SignupscreenState extends State<Signupscreen> {
                           ),
                         ),
                       ),
-                      // decoration: InputDecoration(
-                      //   focusedBorder: OutlineInputBorder(
-                      //     borderRadius: BorderRadius.circular(22),
-                      //     borderSide: BorderSide(
-                      //       color: appTheme.blueGray100,
-                      //       width: 1,
-                      //     ),
-                      //   ),
-                      //   enabledBorder: OutlineInputBorder(
-                      //     borderRadius: BorderRadius.circular(22),
-                      //     borderSide: BorderSide(
-                      //       color: appTheme.blueGray100,
-                      //       width: 1,
-                      //     ),
-                      //   ),
-                      // ),
                       value: selecteditem,
                       items: genderlist
                           .map((item) => DropdownMenuItem(
@@ -564,5 +564,16 @@ class _SignupscreenState extends State<Signupscreen> {
         ],
       ),
     );
+  }
+
+  void togglepassword() {
+    // if (ishidepassword = true) {
+    //   ishidepassword = false;
+    // } else {
+    //   ishidepassword = true;
+    // }
+    setState(() {
+      ishidepassword = !ishidepassword;
+    });
   }
 }

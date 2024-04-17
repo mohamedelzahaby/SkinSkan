@@ -287,7 +287,15 @@ class _LoginscreenState extends State<Loginscreen> {
               child: TextFormField(
                   controller: _passwordController,
                   cursorColor: Colors.black,
+                  obscureText: hideloginpassword,
                   decoration: InputDecoration(
+                    suffixIcon: GestureDetector(
+                        onTap: toggleloginpassword,
+                        child: Icon(
+                            hideloginpassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Colors.grey[400])),
                     hintText: "*******************",
                     contentPadding: const EdgeInsetsDirectional.all(10),
                     hintStyle: TextStyle(color: Colors.grey[400]),
@@ -378,5 +386,11 @@ class _LoginscreenState extends State<Loginscreen> {
         ],
       ),
     );
+  }
+
+  void toggleloginpassword() {
+    setState(() {
+      hideloginpassword = !hideloginpassword;
+    });
   }
 }
