@@ -8,6 +8,8 @@ import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
 import 'package:skin_skan_v1/presentation/screens/more/morescreen.dart';
 import 'package:skin_skan_v1/presentation/screens/onbaording/onbaordingscreen.dart';
 import 'package:skin_skan_v1/presentation/screens/select_body_part/select_body_part.dart';
+import 'package:skin_skan_v1/presentation/screens/skanhistory/skanhistory.dart';
+import 'package:skin_skan_v1/presentation/screens/skindetails/skandetails.dart';
 import 'package:skin_skan_v1/presentation/screens/splash/splashscreen.dart';
 import 'package:skin_skan_v1/widgets/FBA_navbar.dart';
 
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Skin skan',
-        home: Signupscreen(),
+        home: const Skanshistory(),
       );
     });
   }

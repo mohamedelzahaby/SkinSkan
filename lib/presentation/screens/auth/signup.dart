@@ -4,7 +4,7 @@ import 'package:sizer/sizer.dart';
 // import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/image_manager.dart';
 import 'package:skin_skan_v1/presentation/screens/auth/loginscreen.dart';
-import 'package:skin_skan_v1/presentation/screens/home/homepage.dart';
+
 import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
 
 import '../../../core/resources/colors.dart';
@@ -448,7 +448,7 @@ class _SignupscreenState extends State<Signupscreen> {
               Padding(
                 padding: EdgeInsets.only(right: 7.h),
                 child: const Text(
-                  "age",
+                  "gender",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -468,30 +468,47 @@ class _SignupscreenState extends State<Signupscreen> {
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
                   ),
-                  child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(22),
-                          borderSide: BorderSide(
-                            color: appTheme.blueGray100,
-                            width: 1,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(22),
-                          borderSide: BorderSide(
-                            color: appTheme.blueGray100,
-                            width: 1,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(22),
-                          borderSide: BorderSide(
-                            color: appTheme.blueGray100,
-                            width: 1,
-                          ),
-                        ),
-                      ),
+                  child: DropdownButton(
+                      borderRadius: BorderRadius.circular(22),
+                      // decoration: InputDecoration(
+                      //   focusedBorder: OutlineInputBorder(
+                      //     borderRadius: BorderRadius.circular(22),
+                      //     borderSide: BorderSide(
+                      //       color: appTheme.blueGray100,
+                      //       width: 1,
+                      //     ),
+                      //   ),
+                      //   enabledBorder: OutlineInputBorder(
+                      //     borderRadius: BorderRadius.circular(22),
+                      //     borderSide: BorderSide(
+                      //       color: appTheme.blueGray100,
+                      //       width: 1,
+                      //     ),
+                      //   ),
+                      // ),
+                      //  decoration: InputDecoration(
+                      //     border: OutlineInputBorder(
+                      //       borderRadius: BorderRadius.circular(22),
+                      //       borderSide: BorderSide(
+                      //         color: appTheme.blueGray100,
+                      //         width: 1,
+                      //       ),
+                      //     ),
+                      //     enabledBorder: OutlineInputBorder(
+                      //       borderRadius: BorderRadius.circular(22),
+                      //       borderSide: BorderSide(
+                      //         color: appTheme.blueGray100,
+                      //         width: 1,
+                      //       ),
+                      //     ),
+                      //     focusedBorder: OutlineInputBorder(
+                      //       borderRadius: BorderRadius.circular(22),
+                      //       borderSide: BorderSide(
+                      //         color: appTheme.blueGray100,
+                      //         width: 1,
+                      //       ),
+                      //     ),
+                      //   ),
                       value: selecteditem,
                       items: genderlist
                           .map((item) => DropdownMenuItem(
@@ -503,9 +520,7 @@ class _SignupscreenState extends State<Signupscreen> {
                               ))
                           .toList(),
                       onChanged: (item) {
-                        setState(() {
-                          selecteditem = item;
-                        });
+                        setState(() => selecteditem = item);
                       }),
                 ),
               ),

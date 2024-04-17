@@ -268,7 +268,7 @@ class Morescreen extends StatelessWidget {
                 SizedBox(width: 3.h),
                 Text(
                   "logout",
-                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 15.sp),
+                  style: TextStyle(color: Mycolors.circlered, fontSize: 15.sp),
                 ),
                 const Spacer(
                     // flex: 1,
@@ -276,7 +276,7 @@ class Morescreen extends StatelessWidget {
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.arrow_forward_ios_rounded,
-                      color: Mycolors.mintgreen),
+                      color: Mycolors.circlered),
                 )
               ],
             ),
