@@ -521,29 +521,29 @@ class _SignupscreenState extends State<Signupscreen> {
                   ),
                   child: DropdownButtonFormField(
                       borderRadius: BorderRadius.circular(22),
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(22),
-                          borderSide: BorderSide(
-                            color: appTheme.blueGray100,
-                            width: 1,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(22),
-                          borderSide: BorderSide(
-                            color: appTheme.blueGray100,
-                            width: 1,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(22),
-                          borderSide: BorderSide(
-                            color: appTheme.blueGray100,
-                            width: 1,
-                          ),
-                        ),
-                      ),
+                      // decoration: InputDecoration(
+                      //   border: OutlineInputBorder(
+                      //     borderRadius: BorderRadius.circular(22),
+                      //     borderSide: BorderSide(
+                      //       color: appTheme.blueGray100,
+                      //       width: 1,
+                      //     ),
+                      //   ),
+                      //   enabledBorder: OutlineInputBorder(
+                      //     borderRadius: BorderRadius.circular(22),
+                      //     borderSide: BorderSide(
+                      //       color: appTheme.blueGray100,
+                      //       width: 1,
+                      //     ),
+                      //   ),
+                      //   focusedBorder: OutlineInputBorder(
+                      //     borderRadius: BorderRadius.circular(22),
+                      //     borderSide: BorderSide(
+                      //       color: appTheme.blueGray100,
+                      //       width: 1,
+                      //     ),
+                      //   ),
+                      // ),
                       value: selecteditem,
                       items: genderlist
                           .map((item) => DropdownMenuItem(

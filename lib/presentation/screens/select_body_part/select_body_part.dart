@@ -93,102 +93,115 @@ class _Select_body_PartState extends State<Select_body_Part> {
   }
 
   Widget SelectfacePart(BuildContext context, String text) {
-    return Radio(
-        // activeColor: Colors.blue,
-        value: "face",
-        groupValue: bodypart,
-        onChanged: (val) {
-          setState(() {
-            bodypart = val;
-            Container(
-                decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xff0688C0),
-                          Color(0xff00AA99),
-                          Color(0xff75C163),
-                        ]),
-                    borderRadius: BorderRadius.circular(18)),
-                height: 4.h,
-                width: 4.h);
-          });
-        });
+    return Transform.scale(
+      scale: 1.3,
+      child: Radio(
+
+          // activeColor: Colors.blue,
+          value: "face",
+          groupValue: bodypart,
+          onChanged: (val) {
+            setState(() {
+              bodypart = val;
+              Container(
+                  decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xff0688C0),
+                            Color(0xff00AA99),
+                            Color(0xff75C163),
+                          ]),
+                      borderRadius: BorderRadius.circular(18)),
+                  height: 4.h,
+                  width: 4.h);
+            });
+          }),
+    );
   }
 
 ////////////////////////////////////////////
   Widget SelectbackPart(BuildContext context, String text) {
-    return Radio(
-        value: "back",
-        groupValue: bodypart,
-        onChanged: (val) {
-          setState(() {
-            bodypart = val;
-            Container(
-                decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xff0688C0),
-                          Color(0xff00AA99),
-                          Color(0xff75C163),
-                        ]),
-                    borderRadius: BorderRadius.circular(18)),
-                height: 4.h,
-                width: 4.h);
-          });
-        });
+    return Transform.scale(
+      scale: 1.3,
+      child: Radio(
+          value: "back",
+          groupValue: bodypart,
+          onChanged: (val) {
+            setState(() {
+              bodypart = val;
+              Container(
+                  decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xff0688C0),
+                            Color(0xff00AA99),
+                            Color(0xff75C163),
+                          ]),
+                      borderRadius: BorderRadius.circular(18)),
+                  height: 4.h,
+                  width: 4.h);
+            });
+          }),
+    );
   }
 
 //////////////////////////////////////////////////////////////////
   Widget SelectcheastPart(BuildContext context, String text) {
-    return Radio(
-        value: "cheast",
-        groupValue: bodypart,
-        onChanged: (val) {
-          setState(() {
-            bodypart = val;
-            Container(
-                decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xff0688C0),
-                          Color(0xff00AA99),
-                          Color(0xff75C163),
-                        ]),
-                    borderRadius: BorderRadius.circular(18)),
-                height: 4.h,
-                width: 4.h);
-          });
-        });
+    return Transform.scale(
+      scale: 1.3,
+      child: Radio(
+          value: "cheast",
+          groupValue: bodypart,
+          onChanged: (val) {
+            setState(() {
+              bodypart = val;
+              Container(
+                  decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xff0688C0),
+                            Color(0xff00AA99),
+                            Color(0xff75C163),
+                          ]),
+                      borderRadius: BorderRadius.circular(18)),
+                  height: 4.h,
+                  width: 4.h);
+            });
+          }),
+    );
   }
 
 //////////////////////////////////////////////////////////////////////
   Widget SelectlegPart(BuildContext context, String text) {
-    return Radio(
-        value: "leg",
-        groupValue: bodypart,
-        onChanged: (val) {
-          setState(() {
-            bodypart = val;
-            Container(
-                decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xff0688C0),
-                          Color(0xff00AA99),
-                          Color(0xff75C163),
-                        ]),
-                    borderRadius: BorderRadius.circular(18)),
-                height: 4.h,
-                width: 4.h);
-          });
-        });
+    return Transform.scale(
+      scale: 1.3,
+      child: Radio(
+          value: "leg",
+          groupValue: bodypart,
+          onChanged: (val) {
+            setState(() {
+              bodypart = val;
+              Container(
+                  decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xff0688C0),
+                            Color(0xff00AA99),
+                            Color(0xff75C163),
+                          ]),
+                      borderRadius: BorderRadius.circular(18)),
+                  height: 4.h,
+                  width: 4.h);
+            });
+          }),
+    );
   }
 }

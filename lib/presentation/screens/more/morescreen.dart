@@ -21,6 +21,9 @@ class _MorescreenState extends State<Morescreen> {
     );
   }
 
+  bool allownotification = false;
+  bool sendemail = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +101,7 @@ class _MorescreenState extends State<Morescreen> {
                 SizedBox(width: 3.h),
                 Text(
                   "My SKAN’s",
-                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 15.sp),
+                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 12.sp),
                 ),
                 const Spacer(
                     // flex: 1,
@@ -135,16 +138,19 @@ class _MorescreenState extends State<Morescreen> {
                 SizedBox(width: 3.h),
                 Text(
                   "Allow Notifications",
-                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 15.sp),
+                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 12.sp),
                 ),
                 const Spacer(
                     // flex: 1,
                     ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward_ios_rounded,
-                      color: Mycolors.mintgreen),
-                )
+                Switch(
+                    activeColor: Mycolors.circlegreen,
+                    value: allownotification,
+                    onChanged: (val) {
+                      setState(() {
+                        allownotification = val;
+                      });
+                    })
               ],
             ),
           )),
@@ -172,7 +178,7 @@ class _MorescreenState extends State<Morescreen> {
                 SizedBox(width: 3.h),
                 Text(
                   "About us",
-                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 15.sp),
+                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 12.sp),
                 ),
                 const Spacer(
                     // flex: 1,
@@ -209,7 +215,7 @@ class _MorescreenState extends State<Morescreen> {
                 SizedBox(width: 3.h),
                 Text(
                   "FAQ’s",
-                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 15.sp),
+                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 12.sp),
                 ),
                 const Spacer(
                     // flex: 1,
@@ -246,16 +252,19 @@ class _MorescreenState extends State<Morescreen> {
                 SizedBox(width: 2.h),
                 Text(
                   "Send Email Notification",
-                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 15.sp),
+                  style: TextStyle(color: Mycolors.mintgreen, fontSize: 12.sp),
                 ),
                 const Spacer(
                     // flex: 1,
                     ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward_ios_rounded,
-                      color: Mycolors.mintgreen),
-                )
+                Switch(
+                    activeColor: Mycolors.circlegreen,
+                    value: sendemail,
+                    onChanged: (val) {
+                      setState(() {
+                        sendemail = val;
+                      });
+                    })
               ],
             ),
           )),
@@ -286,7 +295,7 @@ class _MorescreenState extends State<Morescreen> {
                 SizedBox(width: 3.h),
                 Text(
                   "logout",
-                  style: TextStyle(color: Mycolors.circlered, fontSize: 15.sp),
+                  style: TextStyle(color: Mycolors.circlered, fontSize: 12.sp),
                 ),
                 const Spacer(
                     // flex: 1,

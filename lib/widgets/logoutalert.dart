@@ -36,7 +36,8 @@ class Logoutalert extends StatelessWidget {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    foregroundColor: Colors.red,
+                  
+                    side: BorderSide(color: Mycolors.circlered),
                   ),
                   onPressed: () {
                     FirebaseAuth.instance.signOut();
