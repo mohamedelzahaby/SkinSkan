@@ -3,9 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../../core/resources/colors.dart';
 import '../../../core/resources/image_manager.dart';
+import '../../../widgets/logoutalert.dart';
 
-class Morescreen extends StatelessWidget {
+class Morescreen extends StatefulWidget {
   const Morescreen({super.key});
+
+  @override
+  State<Morescreen> createState() => _MorescreenState();
+}
+
+class _MorescreenState extends State<Morescreen> {
+  void _openIconButtonPressed(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (ctx) => Logoutalert(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -251,7 +265,8 @@ class Morescreen extends StatelessWidget {
   Widget buildlogout(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        FirebaseAuth.instance.signOut();
+        // FirebaseAuth.instance.signOut();
+        _openIconButtonPressed(context);
       },
       child: Container(
           height: 6.h,
@@ -276,7 +291,8 @@ class Morescreen extends StatelessWidget {
                 const Spacer(
                     // flex: 1,
                     ),
-                const Icon(Icons.arrow_forward_ios_rounded, color: Mycolors.circlered)
+                const Icon(Icons.arrow_forward_ios_rounded,
+                    color: Mycolors.circlered)
               ],
             ),
           )),

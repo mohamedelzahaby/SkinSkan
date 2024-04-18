@@ -2,12 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/colors.dart';
-// import 'package:path/path.dart';
-// import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/image_manager.dart';
 import 'package:skin_skan_v1/presentation/screens/auth/signup.dart';
 
-import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
+
 
 import '../../../core/theme/theme_helper.dart';
 import '../../../widgets/basedbutton.dart';

@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Skin skan',
-        home: auth(),
+        home: Navbar(),
       );
     });
   }
