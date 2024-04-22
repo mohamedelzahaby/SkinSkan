@@ -68,7 +68,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/presentation/screens/auth/loginscreen.dart';
-import 'package:skin_skan_v1/presentation/screens/more/morescreen.dart';
+
 
 import '../../../../core/resources/colors.dart';
 
