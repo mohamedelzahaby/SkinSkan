@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/colors.dart';
 
@@ -37,7 +36,7 @@ class Logoutalert extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                   
-                    side: BorderSide(color: Mycolors.circlered),
+                    side: const BorderSide(color: Mycolors.circlered),
                   ),
                   onPressed: () {
                     FirebaseAuth.instance.signOut();

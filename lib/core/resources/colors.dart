@@ -8,6 +8,7 @@ class Mycolors {
   static const Color circlegreen = Color(0xff75C163);
   static const Color circleblue = Color(0xff3758A8);
   static const Color circlered = Color(0xffF10000);
+  static const Color textcolor = Color(0xff999898);
 }
 
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:skin_skan_v1/presentation/screens/auth/loginscreen.dart';
+import 'package:skin_skan_v1/widgets/FBA_navbar.dart';
 
 import 'package:skin_skan_v1/widgets/basedbutton.dart';
 
@@ -62,11 +62,12 @@ class OnboardingoneScreen extends StatelessWidget {
             ImageAssets.onbaordinglogo,
           ),
           const Spacer(),
-          BaseButton(text: "Get Started !", onpressed: () {Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Loginscreen()
-                    ));}),
+          BaseButton(
+              text: "Get Started !",
+              onpressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Navbar()));
+              }),
           const SizedBox(
             height: 50,
           )

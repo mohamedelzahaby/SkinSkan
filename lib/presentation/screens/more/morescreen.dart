@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../../core/resources/colors.dart';
@@ -17,7 +17,7 @@ class _MorescreenState extends State<Morescreen> {
     showModalBottomSheet(
       isScrollControlled: true,
       context: context,
-      builder: (ctx) => Logoutalert(),
+      builder: (ctx) => const Logoutalert(),
     );
   }
 

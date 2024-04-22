@@ -1,12 +1,15 @@
 // ignore_for_file: file_names, use_key_in_widget_constructors, library_private_types_in_public_api, sort_child_properties_last, sized_box_for_whitespace
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:skin_skan_v1/core/resources/colors.dart';
 import 'package:skin_skan_v1/core/resources/image_manager.dart';
+// import 'package:skin_skan_v1/presentation/screens/auth/loginscreen.dart';
 import 'package:skin_skan_v1/presentation/screens/home/homescreen.dart';
 import 'package:skin_skan_v1/presentation/screens/more/morescreen.dart';
 import 'package:skin_skan_v1/presentation/screens/select_body_part/select_body_part.dart';
+import 'package:skin_skan_v1/presentation/screens/more/widget/dialogbox.dart';
 
 class Navbar extends StatefulWidget {
   @override
@@ -19,7 +22,8 @@ class _NavbarState extends State<Navbar> {
   int currentTab = 0; // to keep track of active tab index
   final List<Widget> screens = [
     const Homescreen(),
-    const Morescreen(),
+    // const Morescreen(),
+    // const Loginscreen(),
   ]; // to store nested tabs
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = const Homescreen(); // Our first view in viewport
@@ -83,35 +87,48 @@ class _NavbarState extends State<Navbar> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    MaterialButton(
-                      minWidth: 10,
-                      onPressed: () {
-                        setState(() {
-                          currentScreen =
-                              const Morescreen(); // if user taps on this dashboard tab will be active
-                          currentTab = 2;
-                        });
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(
-                            Icons.dehaze,
-                            color: currentTab == 2
-                                ? Mycolors.mintgreen
-                                : Colors.grey,
-                          ),
-                          Text(
-                            'More',
-                            style: TextStyle(
-                              color: currentTab == 2
-                                  ? Mycolors.mintgreen
-                                  : Colors.grey,
+                    StreamBuilder<User?>(
+                        stream: FirebaseAuth.instance.authStateChanges(),
+                        builder: (context, snapshot) {
+                          return MaterialButton(
+                            minWidth: 10,
+                            onPressed: () {
+                              if (snapshot.hasData) {
+                                setState(() {
+                                  currentScreen =
+                                      const Morescreen(); // if user taps on this dashboard tab will be active
+                                  currentTab = 0;
+                                });
+                              } else {
+                                setState(() {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) =>
+                                          const Moredialogbox());
+                                });
+                              }
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.dehaze,
+                                  color: currentTab == 2
+                                      ? Mycolors.mintgreen
+                                      : Colors.grey,
+                                ),
+                                Text(
+                                  'More',
+                                  style: TextStyle(
+                                    color: currentTab == 2
+                                        ? Mycolors.mintgreen
+                                        : Colors.grey,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
+                          );
+                        }),
                   ],
                 )
               ],
